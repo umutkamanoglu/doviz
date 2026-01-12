@@ -5,6 +5,7 @@ import { View, Text, ActivityIndicator, TouchableOpacity, ScrollView, RefreshCon
 import { useCurrencyData } from 'hooks/useCurrencyData';
 import './global.css';
 import CurrencyCard from 'components/currencyCard';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function App() {
   const { data, loading, error, refetch, lastUpdate } = useCurrencyData(30000);
@@ -91,7 +92,7 @@ export default function App() {
                 className={`px-4 py-2 rounded-lg ${loading ? 'bg-gray-300' : 'bg-blue-500'}`}
               >
                 <Text className="text-white font-semibold">
-                  {loading ? '⏳' : '🔄'} Yenile
+                  {loading ? <Ionicons name="hourglass" size={15} /> : <Ionicons name="refresh" size={15} />} Yenile
                 </Text>
               </TouchableOpacity>
             </View>
